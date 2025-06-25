@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analitik Interaktif - Asta Cita</title>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; margin: 20px; background: #f9f9f9; color: #333; }
+    h2 { color: #4b4b4b; }
+    .chart-container { margin-bottom: 50px; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+    .wordcloud-container { display: flex; flex-wrap: wrap; gap: 20px; }
+    .wordcloud-item { flex: 1 1 30%; text-align: center; }
+    img { max-width: 100%; border: 1px solid #ccc; border-radius: 8px; }
+  </style>
+</head>
+<body>
+  <h1>Dashboard Analitik Asta Cita Prabowo (Des 2024 - Mei 2025)</h1>
+
+  <div class="chart-container">
+    <h2>Jumlah Estimasi Viewer per Bulan</h2>
+    <div id="viewerChart"></div>
+  </div>
+
+  <div class="chart-container">
+    <h2>Jumlah Berita per Bulan</h2>
+    <div id="beritaChart"></div>
+  </div>
+
+  <div class="chart-container">
+    <h2>Wordcloud Judul Berita per Bulan</h2>
+    <div class="wordcloud-container">
+      <div class="wordcloud-item">
+        <h3>Des 2024</h3>
+        <img src="../mpr/1.png" />
+      </div>
+      <div class="wordcloud-item">
+        <h3>Jan 2025</h3>
+        <img src="../mpr/2.png" />
+      </div>
+      <div class="wordcloud-item">
+        <h3>Feb 2025</h3>
+        <img src="../mpr/3.png" />
+      </div>
+      <div class="wordcloud-item">
+        <h3>Mar 2025</h3>
+        <img src="../mpr/4.png" />
+      </div>
+      <div class="wordcloud-item">
+        <h3>Apr 2025</h3>
+        <img src="../mpr/5.png" />
+      </div>
+      <div class="wordcloud-item">
+        <h3>Mei 2025</h3>
+        <img src="../mpr/6.png" />
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const viewerData = {
+      x: ["2024-12", "2025-01", "2025-02", "2025-03", "2025-04", "2025-05"],
+      y: [544500, 521000, 525000, 562000, 463000, 537000],
+      type: 'scatter',
+      mode: 'lines+markers',
+      marker: { color: 'blue' }
+    };
+    Plotly.newPlot('viewerChart', [viewerData], { title: 'Viewer per Bulan', xaxis: {title: 'Bulan'}, yaxis: {title: 'Viewer'} });
+
+    const beritaData = {
+      x: ["2024-12", "2025-01", "2025-02", "2025-03", "2025-04", "2025-05"],
+      y: [110, 182, 182, 156, 107, 213],
+      type: 'bar',
+      marker: { color: 'orange' }
+    };
+    Plotly.newPlot('beritaChart', [beritaData], { title: 'Jumlah Berita per Bulan', xaxis: {title: 'Bulan'}, yaxis: {title: 'Jumlah Berita'} });
+  </script>
+</body>
+</html>
